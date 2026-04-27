@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Model and dataset artifacts
+data/
+datasets/
+checkpoints/
+weights/
+models/
+artifacts/
+outputs/
+runs/
+*.onnx
+*.pt
+*.pth
+*.safetensors
+*.rknn
+*.engine
+
+# Local files
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db

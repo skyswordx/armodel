@@ -1,0 +1,9 @@
+extends: configs/smovla/base.yaml
+
+training:
+  method: lora
+  precision: bf16
+  output_dir: smoVLA/post_training/adapters
+
+dataset:
+  manifest: smoVLA/post_training/datasets/dataset_manifest.example.yaml

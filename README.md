@@ -1,17 +1,65 @@
 # armodel
 
-`armodel` is a model-side workspace for the Roboclaw arm stack.
+`armodel` is the model-side workspace for the Roboclaw arm stack.
 
-The repository is intended to hold future work for:
+This repository keeps code, configuration, manifests, and small examples in Git.
+Large model weights, datasets, checkpoints, exported inference engines, and local caches stay outside Git.
 
-- vision recognition with NPU acceleration;
-- smoVLA post-training assets and experiments;
-- smoVLA inference runtime integration.
+## Scope
+
+- Pull base `smoVLA` models from Hugging Face by manifest.
+- Manage `smoVLA` post-training recipes, adapters, and checkpoints.
+- Export trained models to deployment formats such as ONNX, TorchScript, and NPU engines.
+- Maintain vision-recognition preprocessing and NPU backend integration.
+- Provide runtime loading and inference entry points for the arm stack.
 
 ## Layout
 
-- `vision_npu/`: vision recognition and NPU acceleration work.
-- `smoVLA/`: smoVLA post-training experiments, adapters, and model assets.
-- `runtime/`: inference entry points, deployment notes, and runtime adapters.
+```text
+configs/
+  smovla/            Training, export, and inference configuration.
+  vision_npu/        Vision preprocessing, quantization, and backend configuration.
+scripts/             CLI utilities for download, training, export, conversion, and inference.
+smoVLA/
+  hf/                Hugging Face manifests, lock files, and local snapshot mount points.
+  post_training/     Dataset notes, recipes, adapters, and checkpoint mount points.
+  export/            Export manifests and local exported model mount points.
+vision_npu/          Vision preprocessing, calibration, and NPU backend adapters.
+runtime/             Runtime loader, pipeline, types, and examples.
+docs/                Asset policy and workflow notes.
+tests/               Lightweight tests for config and runtime code.
+```
 
-Large model files, datasets, checkpoints, and exported runtime binaries should stay out of Git unless a storage policy is added.
+## Hugging Face model flow
+
+1. Copy `smoVLA/hf/manifests/smovla_template.yaml` to a model-specific manifest.
+2. Fill in the real Hugging Face `repo_id`, immutable `revision`, file allow list, and local cache path.
+3. Run:
+
+```powershell
+python scripts/hf_download.py smoVLA/hf/manifests/<model>.yaml
+```
+
+The downloaded snapshot is stored under `smoVLA/hf/snapshots/` and is ignored by Git.
+Commit only the manifest and lock metadata needed to reproduce the download.
+
+## Asset policy
+
+Git tracks:
+
+- Source code and tests.
+- YAML configuration.
+- Hugging Face source manifests.
+- Export manifests.
+- Small format examples.
+- `.gitkeep` files for empty artifact directories.
+
+Git does not track:
+
+- Datasets.
+- Hugging Face model snapshots.
+- Checkpoints and adapters.
+- ONNX, TorchScript, RKNN, TensorRT, and other exported engines.
+- Local experiment outputs.
+
+Use `docs/model_asset_policy.md` before adding any large file to this repository.

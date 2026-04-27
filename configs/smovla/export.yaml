@@ -1,0 +1,9 @@
+extends: configs/smovla/base.yaml
+
+export:
+  source: adapter
+  target_formats:
+    - onnx
+    - npu
+  output_dir: smoVLA/export
+  opset: 17

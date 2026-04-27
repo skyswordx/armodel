@@ -1,0 +1,11 @@
+method: lora
+precision: bf16
+epochs: 3
+batch_size: 8
+learning_rate: 0.0001
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+outputs:
+  adapter_dir: smoVLA/post_training/adapters

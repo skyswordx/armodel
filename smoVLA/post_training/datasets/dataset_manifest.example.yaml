@@ -1,0 +1,11 @@
+name: example-smovla-dataset
+version: example
+format: jsonl
+splits:
+  train: smoVLA/post_training/datasets/samples/train.example.jsonl
+  validation: smoVLA/post_training/datasets/samples/validation.example.jsonl
+fields:
+  image: image path or encoded image payload
+  robot_state: joint and end-effector state vector
+  instruction: natural-language or task instruction
+  action: target action vector

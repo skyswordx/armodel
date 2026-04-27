@@ -1,0 +1,8 @@
+backend:
+  name: rknn
+  target_platform: rk3588
+  quantization: int8
+
+calibration:
+  sample_dir: vision_npu/calibration/samples
+  dataset_manifest: vision_npu/calibration/calibration_manifest.example.yaml

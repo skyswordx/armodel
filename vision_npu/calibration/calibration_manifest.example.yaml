@@ -1,0 +1,4 @@
+name: example-calibration-set
+sample_dir: vision_npu/calibration/samples
+image_format: jpg
+count: 0

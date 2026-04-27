@@ -1,0 +1,7 @@
+method: full_finetune
+precision: bf16
+epochs: 1
+batch_size: 2
+learning_rate: 0.00001
+outputs:
+  checkpoint_dir: smoVLA/post_training/checkpoints

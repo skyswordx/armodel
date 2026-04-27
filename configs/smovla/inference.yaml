@@ -1,0 +1,14 @@
+model:
+  source_manifest: smoVLA/hf/manifests/smovla_template.yaml
+  export_manifest: smoVLA/export/onnx/export_manifest.example.yaml
+
+runtime:
+  device: auto
+  precision: fp16
+  batch_size: 1
+
+inputs:
+  image_size:
+    - 224
+    - 224
+  robot_state_dim: 14

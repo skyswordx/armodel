@@ -10,21 +10,49 @@ __pycache__/
 venv/
 env/
 
-# Model and dataset artifacts
-data/
-datasets/
-checkpoints/
-weights/
-models/
-artifacts/
-outputs/
-runs/
+# Hugging Face snapshots and local caches
+smoVLA/hf/snapshots/*
+!smoVLA/hf/snapshots/.gitkeep
+.cache/
+hf_cache/
+
+# Training datasets and artifacts
+smoVLA/post_training/datasets/raw/
+smoVLA/post_training/datasets/processed/
+smoVLA/post_training/adapters/*
+smoVLA/post_training/checkpoints/*
+!smoVLA/post_training/adapters/.gitkeep
+!smoVLA/post_training/checkpoints/.gitkeep
+
+# Exported model artifacts
+smoVLA/export/onnx/*
+smoVLA/export/torchscript/*
+smoVLA/export/npu/*
+!smoVLA/export/onnx/.gitkeep
+!smoVLA/export/torchscript/.gitkeep
+!smoVLA/export/npu/.gitkeep
+
+# Vision NPU calibration artifacts
+vision_npu/calibration/samples/*
+!vision_npu/calibration/samples/.gitkeep
+
+# Common model and dataset files
+/data/
+/datasets/
+/checkpoints/
+/weights/
+/models/
+/artifacts/
+/outputs/
+/runs/
 *.onnx
 *.pt
 *.pth
 *.safetensors
 *.rknn
 *.engine
+*.bin
+*.npz
 
 # Local files
 .env

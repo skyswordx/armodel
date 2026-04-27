@@ -1,0 +1,13 @@
+name: smovla-template
+provider: huggingface
+repo_id: ""
+revision: ""
+local_dir: smoVLA/hf/snapshots/smovla-template
+allow_patterns:
+  - "*.json"
+  - "*.txt"
+  - "*.model"
+  - "*.safetensors"
+ignore_patterns:
+  - "*.md"
+notes: "Copy this file, fill repo_id and revision with verified Hugging Face values, then download."

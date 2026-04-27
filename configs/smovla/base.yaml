@@ -1,0 +1,9 @@
+model:
+  family: smovla
+  source_manifest: smoVLA/hf/manifests/smovla_template.yaml
+
+paths:
+  hf_snapshots_dir: smoVLA/hf/snapshots
+  checkpoints_dir: smoVLA/post_training/checkpoints
+  adapters_dir: smoVLA/post_training/adapters
+  export_dir: smoVLA/export

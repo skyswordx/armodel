@@ -1,6 +1,6 @@
-# arm_model
+# armodel
 
-`arm_model` is a model-side workspace for the Roboclaw arm stack.
+`armodel` is a model-side workspace for the Roboclaw arm stack.
 
 The repository is intended to hold future work for:
 
